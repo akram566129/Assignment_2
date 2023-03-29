@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BMI Calculator</title>
+</head>
+<body>
+	<h1>BMI Calculator</h1>
+	<form>
+		<label for="weightInput">Weight (kg):</label>
+		<input type="number" id="weightInput" name="weight">
+		<label for="heightInput">Height (cm):</label>
+		<input type="number" id="heightInput" name="height">
+		<button type="button" id="calculateBtn">Calculate BMI</button>
+	</form>
+	<p>Your BMI is: <span id="result"></span></p>
+
+	<script>
+		// Get the weight, height and calculate button elements
+		const weightInput = document.getElementById("weightInput");
+		const heightInput = document.getElementById("heightInput");
+		const calculateBtn = document.getElementById("calculateBtn");
+		const result = document.getElementById("result");
+
+		// Calculate BMI when the button is clicked
+		calculateBtn.addEventListener("click", () => {
+			const weight = parseFloat(weightInput.value);
+			const height = parseFloat(heightInput.value) / 100; // convert height to meters
+			const bmi = weight / (height * height);
+
+			result.textContent = bmi.toFixed(2); // display BMI with 2 decimal places
+		});
+	</script>
+</body>
+</html>
